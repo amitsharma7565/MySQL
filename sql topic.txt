@@ -1,0 +1,59 @@
+why we need database?
+where we use database?
+types of databases
+what is relational datbase?
+what is my sql?
+what is sql?
+categories of sql
+DDL
+DML
+DCL
+TCL
+Create database
+drop database
+create table
+alter table
+add column
+modify column
+delete column
+drop table
+truncate table
+update table
+Select
+where
+aggregatefunctions
+like
+limit
+case
+when
+order by
+group by
+having
+and
+or
+between
+in
+any
+exists
+all
+joins
+inner joins
+left outer join
+rigt outer join
+full join
+self join
+constraints
+not null
+unique
+primary key
+default
+foreign key
+ 
+date functions
+String functions
+ 
+string datatype
+ 
+datatypes in sql
+date 
+'1990-2-23'

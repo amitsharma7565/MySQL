@@ -1,0 +1,630 @@
+1.create table studentdetails(stuid int NOT NULL,Fname varchar(15) NOT NULL,Lname varchar(15) NOT NULL,age int NOT NULL,EmailId varchar(25) NOT NULL,gender varchar(6) NOT NULL,address varchar(25) NOT NULL,Rollno int NOT NULL);
+Query OK, 0 rows affected (0.64 sec)
+2.create table Deptdetails(deptid int,deptName varchar(10),createDate int);
+
+
+3.mysql> create table subjectdeptdetails(subid int,subject varchar(10),deptid int);
+Query OK, 0 rows affected (0.21 sec)
+
+4.mysql> desc subjectdeptdetails;
+
+
+5.mysql> create table studentmarks(smid int,stuid int,subjectid int,marks int,percentage int);
+Query OK, 0 rows affected (0.60 sec)
+
+6.mysql> show tables;
+
+
+7.mysql> create table studentdeptdetails(sdeptid int,studentid int,deptid int);
+Query OK, 0 rows affected (0.82 sec)
+
+8.mysql> show tables;
+
+mysql> alter table studentdetails modify column stuid int primary key;
+
+
+mysql> desc studentdetails;
+
+
+mysql> alter table deptdetails add constraint fixed primary key (deptid,deptname);
+Query OK, 0 rows affected (0.34 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc deptdetails;
+
+
+mysql> insert into studentdetails values(1,"Devisetti","Lokesh",23,"manikantadevei5@gmail.com","male","tiruvuru",123),(2,"amit","sharma",24,"amit@gmail.com","male","hp",567);
+Query OK, 2 rows affected (0.06 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from studentdetails;
+
+
+mysql> insert into studentdetails(stuid,fname,lname,age,emailid,gender,address,rollno) values(3,"anjali","maraka",23,"anjali@gmail.com","female","AP",789);
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into studentdetails(stuid,fname,lname,age,emailid,gender,address,rollno) values(4,"shwetha","shwetha",23,"shwetha@gmail.com","female","TN",567);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into studentdetails(stuid,fname,lname,age,emailid,gender,address,rollno) values(5,"bhagya","bhagya",26,"bhagya@gmail.com","female","AP",852);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select * from studentdetails;
+
+
+mysql> insert into deptdetails values(1,"CSE",4/5/2016);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> insert into deptdetails values(2,"IT",8/6/2015),(3,"ECE",9/5/2021),(4,"ROBOTICS",25/6/2018),(5,"EEE",15/5/2009);
+Query OK, 4 rows affected (0.18 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM DEPTDETAILS;
+sec)
+
+mysql> alter table deptdetails modify column createdate varchar(15);
+Query OK, 5 rows affected (0.27 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM DEPTDETAILS;
+
+
+mysql> truncate table deptdetails;
+Query OK, 0 rows affected (0.16 sec)
+
+mysql> SELECT * FROM DEPTDETAILS;
+Empty set (0.00 sec)
+
+mysql> insert into deptdetails values(1,"CSE","8/5/2016"),(2,"IT","8/6/2015"),(3,"ECE","9/5/2021"),(4,"ROBOTICS","25/6/2018"),(5,"EEE","15/5/2009");
+Query OK, 5 rows affected (0.11 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT * FROM DEPTDETAILS;
+
+mysql> insert into subjectdeptdetails values(1,"python",1),(2,"java",2),(3,"sql",3),(4,"html",4),(5,"css",5);
+Query OK, 5 rows affected (0.06 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from subjectdeptdetails;
+
+
+mysql> insert into studentmarks values(1,1,1,60,60),(2,2,2,58,58),(3,3,3,70,70),(4,4,4,65,65),(5,5,5,68,68);
+Query OK, 5 rows affected (0.60 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from studentmarks;
+
+mysql> insert into studentdeptdetails values(1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5);
+Query OK, 5 rows affected (0.05 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> select * from studentdeptdetails;
+
+
+mysql> select * from studentdetails;
+
+
+mysql> UPDATE studentdetails SET address="TS" WHERE fname="shwetha";
+Query OK, 1 row affected (0.20 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from studentdetails;
+
+
+mysql> UPDATE studentdetails SET emailid="amit34@gmail.com",address="Himachal" WHERE fname="amit";
+Query OK, 1 row affected (0.45 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from studentdetails;
+
+
+mysql> update studentdetails set emailid="anjali5@gmail.com" where address="AP" and gender="female";
+Query OK, 2 rows affected (0.86 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> select * from studentdetails;
+
+
+
+mysql> delete from studentdetails where rollno=852;
+Query OK, 1 row affected (1.38 sec)
+
+mysql> select * from studentdetails;
+
+
+mysql> delete from studentdetails where rollno=567 and address="tiruvuru";
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from studentdetails;
+
+
+mysql> delete from studentdetails where rollno=567 and gender="male";
+Query OK, 1 row affected (0.86 sec)
+
+mysql> select * from studentdetails;
+
+
+mysql> select * from subjectdeptdetails;
+
+
+mysql> select subject from subjectdeptdetails;
+c)
+
+mysql> select subid from subjectdeptdetails;
+
+5 rows in set (0.00 sec)
+
+mysql> select subid,subject from subjectdeptdetails;
+
+5 rows in set (0.00 sec)
+
+mysql> select * from subjectdeptdetails where deptid>2;
+
+
+mysql> select subject from subjectdeptdetails where subject like "j%";
+ sec)
+
+mysql> select subject from subjectdeptdetails where subject like "%l";
+
+
+mysql> select subject from subjectdeptdetails where subject like "_t%";
+
+mysql> select subject from subjectdeptdetails where subject like "c%s";
+
+
+mysql> select subject from subjectdeptdetails where deptid in(2,3,4);
+
+
+mysql> select subject from subjectdeptdetails where deptid=2 or deptid=3 or deptid=4;
+
+
+
+mysql> select * from studentdetails;
+
+
+
+mysql> select * from studentmarks;
+
+
+mysql> insert into studentmarks values(1,1,1,60,60);
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into studentmarks values(2,2,2,65,65);
+Query OK, 1 row affected (0.14 sec)
+
+mysql> select * from studentmarks where not marks=60;
+
+
+mysql> select marks from studentmarks;
+
+
+mysql> select distinct marks from studentmarks;
+
+
+mysql> select * from studentdetails;
+
+mysql> select * from studentdetails limit 3;
+
+
+mysql> select * from studentdetails limit 2;
+
+
+mysql> select * from studentmarks;
+
+
+
+mysql> select marks as student_marks from studentmarks;
+
+
+mysql> select max(marks) as max_marks from studentmarks;
+
+
+mysql> select min(marks) as max_marks from studentmarks;
+
+mysql> select sum(marks) as sum_marks from studentmarks;
+
+
+mysql> select count(marks) as sum_marks from studentmarks;
+
+
+mysql> select count(marks) as count_marks from studentmarks where marks>65;
+
+
+mysql> select * from studentmarks;
+
+
+mysql> select marks from studentmarks order by marks;
+
+
+mysql> select marks from studentmarks order by marks desc;
+
+
+mysql> select marks from studentmarks order by marks limit 3;
+
+
+==========================================================================================================
+mysql> select * from studentdetails;
+
+mysql> select stuid from studentdetails;
+
+
+mysql> insert into studentdetails values(2,"Devi","Lok",20,"lokidevi5@gmail.com","male","chittela",021);
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select fname from studentdetails where age>20;
+
+
+mysql> select fname as student_name from studentdetails where stuid<3;
+
+
+mysql> select * from studentdetails where stuid in(1,2,7);
+
+mysql> select * from studentdetails;
+
+
+mysql> update studentdetails set fname="vijay" where stuid=1;
+Query OK, 1 row affected (0.06 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from studentdetails;
+
+
+mysql> select * from deptdetails;
+
+
+mysql> update deptdetails set deptname="vijay" where deptid=3;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from deptdetails;
+
+
+mysql> update deptdetails set deptname="CSE" where deptid=3;
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from deptdetails;
+
+mysql> update studentdetails set age=20  where stuid in(1,2,3);
+Query OK, 2 rows affected (0.21 sec)
+Rows matched: 3  Changed: 2  Warnings: 0
+
+mysql> select * from studentdetails;
+
+
+mysql> update studentdetails set age=20 where fname like "s%";
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from studentdetails;
+
+
+
+mysql> select distinct age from studentdetails;
+
+mysql> select age from studentdetails where fname like "%i";
+
+
+mysql>  delete from studentdetails where age>=20;
+Query OK, 4 rows affected (0.06 sec)
+
+mysql> select * from studentdetails;
+Empty set (0.00 sec)
+
+mysql>  insert into studentdetails(stuid,fname,lname,age,emailid,gender,address,rollno) values(4,"shwetha","shwetha",23,"shwetha@gmail.com","female","TN",567);
+Query OK, 1 row affected (0.03 sec)
+
+mysql>  insert into studentdetails values(2,"loki","laki",22,"loki2@gmail.com","male","AP",123),(3,"sai","sai",28,"sai3@gmail.com","male","AP",021);
+Query OK, 2 rows affected (0.03 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE studentdetails SET emailid="amit34@gmail.com",age=25 WHERE stuid=3;
+Query OK, 1 row affected (0.16 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from studentdetails;
+
+mysql>  select rollno from studentdetails order by rollno desc;
+
+
+mysql>  select stuid from studentdetails order by stuid;
+
+mysql> select stuid from studentdetails order by stuid limit 2;
+
+
+mysql> select * from studentdetails order by stuid limit 2;
+
+mysql> select * from studentdetails order by fname;
+
+mysql> select max(age) as max_age from studentdetails where age>23;
+
+
+mysql> select count(age) as count_age from studentdetails where age<23;
+
+
+mysql> select * from studentmarks;
+
+7 rows in set (0.00 sec)
+mysql> select*from studentdetails;
+
+
+mysql> insert into studentdetails values(5,"loki","laki",22,"lokesh@gmail.com","female","TN",125);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into studentdetails values(1,"shwetha","shwetha",23,"shwe@gmail.com","female","AP",86);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into studentdetails values(6,"anjali","anjali",25,"anjali@gmail.com","female","MP",186);
+Query OK, 1 row affected (0.11 sec)
+
+mysql> insert into studentdetails values(7,"anjali","anjali",25,"anjali@gmail.com","female","MP",190);
+Query OK, 1 row affected (0.18 sec)
+
+mysql> select*from studentdetails;
++
+mysql> select address from studentdetails;
+
+
+mysql> select address from studentdetails group by address;
+
+
+mysql> select count(address) from studentdetails group by address;
+
+
+mysql> select address,count(address) from studentdetails group by address;
+
+
+mysql> select address,count(address) from studentdetails order by count(address);
+
+
+mysql> select address,count(address) from studentdetails group by address order by count(address);
+
+
+mysql> select address,count(address) from studentdetails group by address order by count(address) desc limit 3;
+
+
+mysql> select address,count(address) from studentdetails group by address having count(address)>=3;
+
+
+mysql> select gender from studentdetails;
+
+
+mysql> select gender,count(gender) from studentdetails group by gender;
+
+
+mysql> select stuid from studentdetails group by gender;
++-------+
+
+2 rows in set (0.01 sec)
+
+mysql> select gender,count(stuid) from studentdetails group by gender;
+
+mysql> select gender,max(stuid) from studentdetails group by gender;
+
+
+mysql> select gender,count(stuid) from studentdetails group by gender order by count(stuid) desc limit 1;
+
+
+mysql> alter table studentdetails add column marks int;
+Query OK, 7 rows affected (0.64 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> select * from studentdetails;
+
+
+mysql> update studentdetails set marks=70 where stuid=1;
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set marks=65 where stuid=2;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set marks=68 where stuid=3;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set marks=75 where stuid=4;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set marks=78 where stuid=5;
+Query OK, 1 row affected (0.10 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set marks=72 where stuid=6;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set marks=65 where stuid=7;
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from studentdetails;
+
+
+mysql> select marks,count(stuid) from studentdetails group by marks order by count(stuid) desc limit 7;
+
+
+
+mysql> select marks,count(Fname) from studentdetails group by marks order by count(Fname) desc limit 7;
+
+
+
+mysql> select Fname,max(marks) from studentdetails group by fname;
++
+
+
+mysql> select Fname,sum(marks) from studentdetails group by fname;
+
+
+mysql> select fname,max(marks) from studentdetails group by fname having sum(marks)>500;
+Empty set (0.01 sec)
+
+mysql> select * from studentdetails;
+
+
+mysql> insert into studentdetails values(8,"sai","sai",25,"sai@gmail.com","male","AP",258,500);
+Query OK, 1 row affected (0.08 sec)
+
+mysql> select fname,sum(marks) from studentdetails group by fname having sum(marks)>500 and fname like "s%";
+
+
+mysql> select fname,min(marks) from studentdetails group by fname having sum(marks)>600;
+Empty set (0.01 sec)
+
+mysql> select fname,max(marks) from studentdetails group by fname having sum(marks)>500 and fname like "s%";
+
+
+mysql> select fname,min(marks) from studentdetails group by fname having sum(marks)>600;
+Empty set (0.00 sec)
+
+mysql> select * from subjectdeptdetails;
+
+
+
+mysql> select subject from subjectdeptdetails where subject like "p%" and deptid in(1,2,7);
+
+
+mysql> select * from studentdetails;
+
+
+
+mysql> insert into studentdetails values(9,"kiy","kuz",21,"lkie7895","male","TS",587,651);
+Query OK, 1 row affected (0.15 sec)
+
+mysql> select * from studentdetails where emailid not like "%@%";
+
+
+mysql> select fname,min(marks) from studentdetails group by fname having sum(marks)>600;
+
+
+mysql> select * from studentdetails;
+
+
+mysql> select fname,lname from studentdetails order by fname desc;
+
+
+
+mysql> select gender,count(gender) as student_count from studentdetails group by gender;
++-
+
+mysql> select count(address) as student_count from studentdetails group by address having count(address)>3;
+
+
+mysql> select * from studentdetails where stuid=(stuid*2);
+Empty set (0.12 sec)
+
+mysql> select * from studentdetails where stuid=(stuid%2=0);
+Empty set (0.00 sec)
+
+mysql> select * from studentdetails where stuid%2=0;
+
+
+mysql> select age from studentdetails where age>20;
+
+
+
+mysql> select * from studentdetails where stuid%2=0 and fname like "%o%";
+
+mysql> select age-2 as age1 from studentdetails where age>20;;
+
+9 rows in set (0.19 sec)
+
+
+
+mysql> select age-2 as age1 from studentdetails where age>20;
++
+mysql> select fname,age-2 as age1 from studentdetails where age>20;
+
+
+
+mysql> select concat(fname,lname) as Hi from studentdetails;
+
+
+mysql> select concat(fname, lname) as Hi from studentdetails;
+
+
+mysql> select concat(fname, lname,"hi") from studentdetails;
+
+
+mysql> select concat("H i",fname, lname) from studentdetails;
+
+
+mysql> select concat(" Hi ",fname, lname) from studentdetails;
+
+
+mysql> select concat(" Hi ",fname, lname) as fullname from studentdetails;
+
+mysql> select * from studentdetails;
+
+mysql> select * from deptdetails;
+
+
+mysql> select * from studentdeptdetails;
+
+mysql> show tables;
+
+
+mysql> select * from  subjectdeptdetails;
+
+
+
+mysql> select * from deptdetails;
+
+mysql> alter table studentdetails add deptid int;
+Query OK, 9 rows affected (0.31 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> select * from studentdetails;
+
+
+mysql> update studentdetails set deptid=1 where stuid=1;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set deptid=2 where stuid=2;
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set deptid=3 where stuid=3;
+Query OK, 1 row affected (0.34 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set deptid=4 where stuid=4;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set deptid=5 where stuid=5;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set deptid=1 where stuid=6;
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set deptid=2 where stuid=7;
+Query OK, 1 row affected (0.19 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set deptid=2 where stuid=8;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update studentdetails set deptid=3 where stuid=9;
+Query OK, 1 row affected (0.12 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select studentdetails.*,deptdetails.* from studentdetails left join deptdetails on studentdetails.deptid=deptdetails.deptid where deptname="mech";
+Empty set (0.00 sec)
+
+mysql> select studentdetails.*,deptdetails.* from studentdetails left join deptdetails on studentdetails.deptid=deptdetails.deptid where deptname="it";
+
+
+mysql> select studentdetails.*,deptdetails.* from studentdetails right join deptdetails on studentdetails.deptid=deptdetails.deptid where deptname="it";
+
+
+mysql> select studentdetails.*,deptdetails.* from studentdetails right join deptdetails on studentdetails.deptid=deptdetails.deptid where deptname="cse";
+
+
+mysql> select studentdetails.*,deptdetails.* from studentdetails right join deptdetails on studentdetails.deptid=deptdetails.deptid;
